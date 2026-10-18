@@ -1,0 +1,38 @@
+name: appsofi
+description: "A new Flutter project."
+publish_to: 'none'
+version: 0.1.0+1
+
+environment:
+  sdk: ^3.13.0
+
+dependencies:
+  flex_color_scheme: ^8.4.0
+  flutter:
+    sdk: flutter
+  google_fonts: ^8.2.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/images/PREV.png
+
+  fonts:
+    - family: StarPro
+      fonts:
+        - asset: assets/fonts/StarPro.ttf
+
+    - family: WorkSans
+      fonts:
+        - asset: assets/fonts/WorkSans-Light.ttf
+          weight: 300
+        - asset: assets/fonts/WorkSans-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/WorkSans-Medium.ttf
+          weight: 500
