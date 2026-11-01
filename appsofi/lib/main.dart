@@ -1,9 +1,20 @@
+import 'package:appsofi/views/start.dart';
 import 'package:flutter/material.dart';
 import 'theme/theme.dart';
 import 'states/star_pro_icons.dart';
 import 'views/lists.dart';
 
-void main() {
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
+
+
+Future<void> main() async { 
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
   runApp(const MainApp());
 }
 
@@ -87,7 +98,7 @@ class HomeScreen extends StatelessWidget {
             radius: AppSpacing.spacing5,
             backgroundColor: colors.primary,
             child: Icon(
-              Icons.person,
+              Icons.person_outline_outlined,
               color: colors.onPrimary, 
               size: 24
               ),
@@ -134,11 +145,17 @@ class HomeScreen extends StatelessWidget {
             //boton nueva composición
             child: 
             FilledButton.icon(
-              onPressed: () {},
-              icon: const Icon(Icons.add),
-              label: const Text('NUEVA COMPOSICIÓN'),
-              iconAlignment: IconAlignment.start,
-            ),
+                    onPressed: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => const StartView(),
+                      ),
+                      );
+                    },
+
+                    icon: const Icon(Icons.add),
+                    label: const Text('NUEVA COMPOSICIÓN'),
+                    iconAlignment: IconAlignment.start,
+                    ),
+
           ),
 
           const SizedBox(

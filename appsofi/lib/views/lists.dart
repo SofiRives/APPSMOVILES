@@ -33,7 +33,7 @@ class ListsView extends StatelessWidget {
             radius: AppSpacing.spacing5,
             backgroundColor: colors.primary,
             child: Icon(
-              Icons.person,
+              Icons.account_circle_outlined,
               color: colors.onPrimary, 
               size: 24,
             ),
