@@ -26,7 +26,7 @@ class MainApp extends StatelessWidget {
   }
 }
 
-enum FiltroImagen { original, blancoNegro, sepia, calido, frio, vintage }
+enum FiltroImagen { original, blancoNegro, sepia, calido, frio, vintage, nightcity, popSTAR, pomegranate}
 
 class EditorImagenScreen extends StatefulWidget {
   const EditorImagenScreen({super.key});
@@ -90,6 +90,29 @@ class _EditorImagenScreenState extends State<EditorImagenScreen> {
           0.08, 0.14, 0.72, 0, 0,
           0, 0, 0, 1, 0,
         ];
+        case FiltroImagen.nightcity:
+        return [
+        0.8, 0.4, -0.6, 0, 30,  
+       -0.4, 0.8, 0.4, 0,10,  
+       -0.6, -0.2,  1.6, 0, 80,  
+        0, 0, 0, 1,0,
+        ];
+
+         case FiltroImagen.popSTAR:
+        return [
+        0, 1, 0, 0, 0, 
+        0, 0, 1, 0, 0, 
+        1, 0, 0, 0, 0, 
+       0, 0, 0, 1, 0, 
+        ];
+
+         case FiltroImagen.pomegranate:
+        return [
+        1.5, 0, 0, 0, 0, 
+        0, 0.3, 0, 0, 0, 
+        0, 0, 0.3, 0, 0, 
+       0, 0, 0, 1, 0, 
+        ];
     }
   }
 
@@ -115,6 +138,12 @@ class _EditorImagenScreenState extends State<EditorImagenScreen> {
         return 'Frío';
       case FiltroImagen.vintage:
         return 'Vintage';
+      case FiltroImagen.nightcity:
+        return 'nightcity';
+      case FiltroImagen.popSTAR:
+        return 'popSTAR';
+      case FiltroImagen.pomegranate:
+        return 'pomegranate';
     }
   }
 
@@ -183,7 +212,9 @@ class _EditorImagenScreenState extends State<EditorImagenScreen> {
 
     return Scaffold(
       appBar: AppBar(
+
         title: const Text('Editor de imágenes'),
+        
         actions: [
           if (_imagen != null)
             IconButton(
