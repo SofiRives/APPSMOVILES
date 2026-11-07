@@ -167,7 +167,7 @@ class _EditorImagenScreenState extends State<EditorImagenScreen> {
   }
 
   Future<void> _guardarImagen() async {
-    if (_imagen == null || _guardando) return;
+    if (_imagen == null || _guardando) return; 
 
     setState(() => _guardando = true);
 

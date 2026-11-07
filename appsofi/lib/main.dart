@@ -7,6 +7,9 @@ import 'views/lists.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 
+import 'package:google_sign_in/google_sign_in.dart';
+import 'auth/auth_gate.dart';
+
 
 Future<void> main() async { 
   WidgetsFlutterBinding.ensureInitialized();
@@ -14,6 +17,9 @@ Future<void> main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+
+   //Inicializar Google Sign-In
+  await GoogleSignIn.instance.initialize();
 
   runApp(const MainApp());
 }
@@ -26,7 +32,7 @@ class MainApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: incollage,
-      home: const HomeScreen(),
+      home: const AuthGate(),
     );
   }
 }

@@ -62,6 +62,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '784781018682',
     projectId: 'incollage26',
     storageBucket: 'incollage26.firebasestorage.app',
+    androidClientId: '784781018682-ctfbt9m4gecf73krchfdfitdhjrqgafe.apps.googleusercontent.com',
+    iosClientId: '784781018682-fn07h0u2vtor43hrvuv2f81ipogt6e8m.apps.googleusercontent.com',
     iosBundleId: 'com.example.appsofi',
   );
   static const FirebaseOptions macos = FirebaseOptions(
@@ -70,6 +72,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '784781018682',
     projectId: 'incollage26',
     storageBucket: 'incollage26.firebasestorage.app',
+    androidClientId: '784781018682-ctfbt9m4gecf73krchfdfitdhjrqgafe.apps.googleusercontent.com',
+    iosClientId: '784781018682-fn07h0u2vtor43hrvuv2f81ipogt6e8m.apps.googleusercontent.com',
     iosBundleId: 'com.example.appsofi',
   );
 
