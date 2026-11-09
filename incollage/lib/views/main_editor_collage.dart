@@ -186,7 +186,7 @@ class _EditorCollageScreenState extends State<EditorCollageScreen> {
 
       if (selecciones.isEmpty) {
         if (mounted) {
-          Navigator.pop(context); // Regresa directo a start.dart
+          Navigator.pop(context); 
         }
         return;
       }
@@ -194,7 +194,7 @@ class _EditorCollageScreenState extends State<EditorCollageScreen> {
       if (!mounted) return;
 
       setState(() {
-        // Convertimos la selección en una lista de archivos File
+      
         _imagenes = selecciones.map((x) => File(x.path)).toList();
         _filtro = FiltroImagen.original;
         _intensidad = 1;
@@ -210,7 +210,7 @@ class _EditorCollageScreenState extends State<EditorCollageScreen> {
     setState(() => _guardando = true);
 
     try {
-      // Captura la imagen con el filtro aplicado, sin los controles.
+     
       final boundary =
           _imagenKey.currentContext?.findRenderObject()
               as RenderRepaintBoundary?;
@@ -330,9 +330,6 @@ class _EditorCollageScreenState extends State<EditorCollageScreen> {
                             color: colores.onSurfaceVariant,
                           ),
                           const SizedBox(height: AppSpacing.spacing16),
-                          const Text(
-                            'Selecciona',
-                          ),
                         ],
                       ),
                     )
@@ -341,11 +338,11 @@ class _EditorCollageScreenState extends State<EditorCollageScreen> {
                         key: _imagenKey,
                         child: Stack(
                           children: [
-                            // 1. El collage de fondo (lo que ya tenías)
+                           
                             ColorFiltered(
                               colorFilter: ColorFilter.matrix(_matrizActual()),
                               child: Container(
-                                color: Colors.white,
+                                color: Theme.of(context).colorScheme.surface,
                                 child: GridView.builder(
                                   physics: const NeverScrollableScrollPhysics(),
                                   gridDelegate:
@@ -367,7 +364,7 @@ class _EditorCollageScreenState extends State<EditorCollageScreen> {
                               ),
                             ),
 
-                            // 2. El texto flotante superpuesto (LO QUE FALTABA)
+                   
                             if (_textoAgregado.isNotEmpty)
                               Positioned(
                                 left: _posicionTexto.dx,
@@ -380,15 +377,14 @@ class _EditorCollageScreenState extends State<EditorCollageScreen> {
                                   },
                                   child: Text(
                                     _textoAgregado,
-                                    style: const TextStyle(
-                                      color: Colors
-                                          .white, // Puedes cambiar el color
+                                    style: TextStyle(
+                                      color: Theme.of(context).colorScheme.onPrimary,
                                       fontSize: 32,
                                       fontWeight: FontWeight.bold,
                                       shadows: [
                                         Shadow(
                                           blurRadius: 10.0,
-                                          color: Colors.black,
+                                          color: Theme.of(context).colorScheme.onSurface, 
                                           offset: Offset(2.0, 2.0),
                                         ),
                                       ],
@@ -482,7 +478,7 @@ class _EditorCollageScreenState extends State<EditorCollageScreen> {
                                                 _nombreFiltro(filtro),
                                                 overflow: TextOverflow.ellipsis,
                                                 style: TextStyle(
-                                                  color: Colors.black,
+                                                  color: Theme.of(context).colorScheme.onPrimaryContainer,
                                                   fontSize: 11,
                                                   fontWeight: _filtro == filtro
                                                       ? FontWeight.bold
@@ -493,7 +489,12 @@ class _EditorCollageScreenState extends State<EditorCollageScreen> {
                                           ),
                                         ),
                                         selected: _filtro == filtro,
-                                        selectedColor: colores.primaryContainer,
+                                        selectedColor: Theme.of(context).colorScheme.primaryContainer,
+
+                                         side: BorderSide(
+                                          color: _filtro == filtro ? Theme.of(context).colorScheme.primary : Theme.of(context).colorScheme.onPrimaryContainer,
+                                        ),
+
                                         onSelected: (_) => setState(() {
                                           _filtro = filtro;
                                           _intensidad = 1;

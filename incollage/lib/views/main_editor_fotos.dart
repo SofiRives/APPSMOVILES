@@ -213,7 +213,8 @@ class _EditorImagenScreenState extends State<EditorImagenScreen> {
     setState(() => _guardando = true);
 
     try {
-      // Captura la imagen con el filtro aplicado, sin los controles.
+      
+      
       final boundary =
           _imagenKey.currentContext?.findRenderObject()
               as RenderRepaintBoundary?;
@@ -247,7 +248,8 @@ class _EditorImagenScreenState extends State<EditorImagenScreen> {
 
     final imagenRecortada = await ImageCropper().cropImage(
       sourcePath: _imagen!.path,
-      // Configuraciones visuales para Android y iOS
+  
+
       uiSettings: [
         AndroidUiSettings(
           toolbarTitle: 'Recortar Imagen',
@@ -364,7 +366,6 @@ class _EditorImagenScreenState extends State<EditorImagenScreen> {
                             color: colores.onSurfaceVariant,
                           ),
                           const SizedBox(height: AppSpacing.spacing16),
-                          const Text('Selecciona una imagen para editar'),
                         ],
                       ),
                     )
@@ -393,14 +394,14 @@ class _EditorImagenScreenState extends State<EditorImagenScreen> {
                                   },
                                   child: Text(
                                     _textoAgregado,
-                                    style: const TextStyle(
-                                      color: Colors.white,
+                                    style: TextStyle(
+                                      color: Theme.of(context).colorScheme.onPrimary,
                                       fontSize: 32,
                                       fontWeight: FontWeight.bold,
                                       shadows: [
                                         Shadow(
                                           blurRadius: 10.0,
-                                          color: Colors.black,
+                                          color: Theme.of(context).colorScheme.onSurface, 
                                           offset: Offset(2.0, 2.0),
                                         ),
                                       ],
@@ -500,7 +501,9 @@ class _EditorImagenScreenState extends State<EditorImagenScreen> {
                                       padding: const EdgeInsets.only(
                                         right: 8.0,
                                       ),
-                                      child: ChoiceChip(
+                                      child: 
+                                      
+                                      ChoiceChip(
                                         showCheckmark: false,
                                         labelPadding:
                                             const EdgeInsets.symmetric(
@@ -538,7 +541,7 @@ class _EditorImagenScreenState extends State<EditorImagenScreen> {
                                                 _nombreFiltro(filtro),
                                                 overflow: TextOverflow.ellipsis,
                                                 style: TextStyle(
-                                                  color: Colors.black,
+                                                  color: Theme.of(context).colorScheme.onPrimaryContainer,
                                                   fontSize: 11,
                                                   fontWeight: _filtro == filtro
                                                       ? FontWeight.bold
@@ -549,7 +552,15 @@ class _EditorImagenScreenState extends State<EditorImagenScreen> {
                                           ),
                                         ),
                                         selected: _filtro == filtro,
-                                        selectedColor: colores.primaryContainer,
+                                        selectedColor:Theme.of(context).colorScheme.primaryContainer,
+
+                                        side: BorderSide(
+                                          color: _filtro == filtro ? Theme.of(context).colorScheme.primary : Theme.of(context).colorScheme.onPrimaryContainer,
+                                        ),
+
+
+
+
                                         onSelected: (_) => setState(() {
                                           _filtro = filtro;
                                           _intensidad = 1;
