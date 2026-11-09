@@ -200,32 +200,14 @@ class AppGap{
 
 class AppElevation {
 
-static const List<BoxShadow> standarElevation = [
-    BoxShadow(
-      color: Color(0x33000000),
-      offset: Offset(0,0),
-      blurRadius: 0,
-      spreadRadius: 0,
-    ),
-  ];
+static const double elevation0 = 0;
+static const double elevation1 = 1;
+static const double elevation2 = 3;
+static const double elevation3 = 6;
+static const double elevation4 = 8;
+static const double elevation5 = 12;
 
-    static const List<BoxShadow> secondaryElevation = [
-    BoxShadow(
-      color: Color(0x33000000),
-      offset: Offset(0,3),
-      blurRadius: 8,
-      spreadRadius: 0,
-    ),
-  ];
 
-    static const List<BoxShadow> primaryElevation = [
-    BoxShadow(
-      color: Color(0x33000000),
-      offset: Offset(0,8),
-      blurRadius: 24,
-      spreadRadius: 0,
-    ),
-  ];
 }
 
 
@@ -304,8 +286,8 @@ class AppColors {
   static const Color surface100 = Color(0xFF000000);
   static const Color colorMainSurface = Color(0xFFFFFFFF);
   static const Color colorDarkSurface = Color(0xFF000000);
-  static const Color onDarkSurface = Color(0xFF000000);
-  static const Color onMainSurface = Color(0xFFFFFFFF);
+  static const Color onDarkSurface = Color(0xFFFFFFFF);
+  static const Color onMainSurface = Color(0xFF000000);
 }
 
 //TEMA AUDIOMACK

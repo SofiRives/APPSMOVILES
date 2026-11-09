@@ -1,3 +1,4 @@
+import 'package:appsofi/views/main_editor_collage.dart';
 import 'package:flutter/material.dart';
 import 'package:appsofi/views/main_editor_fotos.dart';
 import '../theme/theme.dart';  
@@ -42,11 +43,18 @@ class StartView extends StatelessWidget {
       ),
 
       // lista
-      body: ListView(
+      body:Center(
+      
+     child:  ListView(
+
+      shrinkWrap: true,
+        
         padding: const EdgeInsets.symmetric(
           vertical: AppSpacing.spacing8,
           horizontal: AppSpacing.spacing8,
         ),
+
+        
         children: [
 
           Text('¿Qué hacemos hoy?',
@@ -55,7 +63,7 @@ class StartView extends StatelessWidget {
           
           ),
 
-           const SizedBox(height:AppSpacing.spacing6),
+           const SizedBox(height:AppSpacing.spacing12),
 
            Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -66,7 +74,7 @@ class StartView extends StatelessWidget {
                SizedBox(
             width: 115,
             height: 115,
-            child:  FilledButton.icon(
+            child:  FilledButton(
 
               style: FilledButton.styleFrom(
                 shape: RoundedRectangleBorder(
@@ -82,9 +90,23 @@ class StartView extends StatelessWidget {
                       ),
                       );
                     },
+
+                    child: const Column (
+                      mainAxisSize: MainAxisSize.min,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        
+                        Icon(Icons.image_outlined),
+                         SizedBox(height:6),
+                        Text('Editar Foto',
+                        textAlign: TextAlign.center,
+                        
+                        ),
+                      ],
+                    )
                   
-                    icon: const Icon(Icons.image_outlined),
-                    label: const Text('Editar Foto'),
+                   
+                   
                   ),
 
 
@@ -95,7 +117,7 @@ class StartView extends StatelessWidget {
            SizedBox(
             width: 115,
             height: 115,
-            child:  FilledButton.icon(
+            child:  FilledButton(
 
               style:FilledButton.styleFrom(
                 backgroundColor: Theme.of(context).colorScheme.secondary,
@@ -110,9 +132,31 @@ class StartView extends StatelessWidget {
               
               ),
               
-                    onPressed: () {},
-                    icon: const Icon(Icons.grid_view_outlined),
-                    label: const Text('Crear Collage'),
+                    onPressed: () {
+
+                       Navigator.push(context, MaterialPageRoute(builder: (context) => const EditorCollageScreen(),
+                      ),
+                      );
+
+
+
+
+                    },
+
+                      child: const Column (
+                      mainAxisSize: MainAxisSize.min,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        
+                        Icon(Icons.grid_view_outlined),
+                         SizedBox(height:6),
+                        Text('Crear Collage',
+                        textAlign: TextAlign.center,
+                        
+                        ),
+                      ],
+                    )
+                   
                   ),
            ),
 
@@ -126,6 +170,7 @@ class StartView extends StatelessWidget {
 
         ],
       ),
+    ),
     );
   }
 }
